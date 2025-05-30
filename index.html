@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TrendZ - Home</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #1E1E2F;
+      --accent: #FF6B6B;
+      --bg: #F9F9F9;
+      --secondary: #4ECDC4;
+      --text: #1E1E2F;
+      --font: 'Poppins', sans-serif;
+    }
+
+    [data-theme="dark"] {
+      --primary: #F9F9F9;
+      --accent: #FF6B6B;
+      --bg: #1E1E2F;
+      --secondary: #4ECDC4;
+      --text: #FFFFFF;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: var(--font);
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      transition: background-color 0.4s, color 0.4s;
+    }
+
+    header {
+      background-color: var(--primary);
+      color: white;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header h1 {
+      font-size: 24px;
+      color: var(--accent);
+    }
+
+    nav a {
+      margin: 0 15px;
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+    .hero {
+      background-color: var(--primary);
+      height: 600px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      position: relative;
+    }
+
+    .hero-cube {
+      width: 150px;
+      height: 150px;
+      transform-style: preserve-3d;
+      animation: rotate 10s infinite linear;
+      margin-bottom: 30px;
+    }
+
+    .face {
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      background: var(--secondary);
+      opacity: 0.8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: bold;
+      border: 2px solid white;
+    }
+
+    .front { transform: translateZ(75px); }
+    .back { transform: rotateY(180deg) translateZ(75px); }
+    .right { transform: rotateY(90deg) translateZ(75px); }
+    .left { transform: rotateY(-90deg) translateZ(75px); }
+    .top { transform: rotateX(90deg) translateZ(75px); }
+    .bottom { transform: rotateX(-90deg) translateZ(75px); }
+
+    @keyframes rotate {
+      from { transform: rotateX(0) rotateY(0); }
+      to { transform: rotateX(360deg) rotateY(360deg); }
+    }
+
+    .hero h2 {
+      font-size: 48px;
+      background-color: rgba(0, 0, 0, 0.4);
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .section {
+      padding: 60px 40px;
+      text-align: center;
+    }
+
+    .section h3 {
+      font-size: 32px;
+      margin-bottom: 30px;
+    }
+
+    .categories,
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
+    }
+
+    .card h4 {
+      padding: 15px;
+      font-size: 20px;
+    }
+
+    .newsletter {
+      background-color: var(--secondary);
+      color: white;
+      padding: 40px;
+      border-radius: 10px;
+    }
+
+    .newsletter input[type="email"] {
+      padding: 10px;
+      width: 300px;
+      border: none;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+
+    .newsletter button {
+      padding: 10px 20px;
+      background-color: var(--primary);
+      border: none;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .app-download {
+      background-color: var(--bg);
+      text-align: center;
+      padding: 60px 40px;
+    }
+
+    .app-download h3 {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    .app-download p {
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    .app-download .buttons img {
+      height: 50px;
+      margin: 0 10px;
+      cursor: pointer;
+    }
+
+    footer {
+      background-color: var(--primary);
+      color: white;
+      padding: 20px;
+      text-align: center;
+      margin-top: 60px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>TrendZ</h1>
+    <nav>
+      <a href="/index.html">Home</a>
+      <a href="/about.html">About</a>
+      <a href="/services.html">Services</a>
+      <a href="/contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-cube">
+      <div class="face front">TrendZ</div>
+      <div class="face back">Shop</div>
+      <div class="face right">Now</div>
+      <div class="face left">Style</div>
+      <div class="face top">2025</div>
+      <div class="face bottom">Go!</div>
+    </div>
+    <h2>Step Into Style – Shop the Latest Trends</h2>
+  </section>
+
+  <section class="section">
+    <h3>Shop by Category</h3>
+    <div class="categories">
+      <div class="card">
+        <img src="https://source.unsplash.com/400x300/?men,clothing" alt="Men" />
+        <h4>Men</h4>
+      </div>
+      <div class="card">
+        <img src="https://source.unsplash.com/400x300/?women,fashion" alt="Women" />
+        <h4>Women</h4>
+      </div>
+      <div class="card">
+        <img src="https://source.unsplash.com/400x300/?electronics,gadgets" alt="Electronics" />
+        <h4>Electronics</h4>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h3>Trending Products</h3>
+    <div class="products">
+      <div class="card">
+        <img src="https://source.unsplash.com/400x300/?shoes" alt="Shoes" />
+        <h4>Stylish Sneakers</h4>
+      </div>
+      <div class="card">
+        <img src="https://source.unsplash.com/400x300/?smartphone" alt="Phone" />
+        <h4>Latest Smartphone</h4>
+      </div>
+      <div class="card">
+        <img src="https://source.unsplash.com/400x300/?watch" alt="Watch" />
+        <h4>Classic Watch</h4>
+      </div>
+    </div>
+  </section>
+
+  <section class="section app-download">
+    <h3>Download Our App</h3>
+    <p>Shop faster and easier with the TrendZ mobile app</p>
+    <div class="buttons">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Download_on_the_App_Store_Badge.svg" alt="App Store" />
+    </div>
+  </section>
+
+  <section class="section newsletter">
+    <h3>Join Our Newsletter</h3>
+    <p>Get updates on new arrivals and offers</p>
+    <form>
+      <input type="email" placeholder="Enter your email" required />
+      <button type="submit">Subscribe</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 TrendZ. All rights reserved.</p>
+  </footer>
+
+  <script>
+  </script>
+</body>
+
+</html>
